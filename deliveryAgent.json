@@ -1,0 +1,356 @@
+{
+  "DeliveryAgent": [
+    {
+      "agentId": "AG001",
+      "name": "Ravi Kumar",
+      "phone": "9876543210",
+      "status": "available",
+      "currentOrderId": "",
+      "eta": "10 mins"
+    },
+    {
+      "agentId": "AG002",
+      "name": "Priya Sharma",
+      "phone": "9123456789",
+      "status": "out for delivery",
+      "currentOrderId": "ORD1003",
+      "eta": "25 mins"
+    },
+    {
+      "agentId": "AG003",
+      "name": "Amit Verma",
+      "phone": "9988776655",
+      "status": "on the way",
+      "currentOrderId": "ORD1005",
+      "eta": "15 mins"
+    },
+    {
+      "agentId": "AG004",
+      "name": "Sneha Joshi",
+      "phone": "9012345678",
+      "status": "available",
+      "currentOrderId": "",
+      "eta": "12 mins"
+    },
+    {
+      "agentId": "AG005",
+      "name": "Karan Mehta",
+      "phone": "8899001122",
+      "status": "out for delivery",
+      "currentOrderId": "ORD1008",
+      "eta": "30 mins"
+    },
+    {
+      "agentId": "AG006",
+      "name": "Neha Reddy",
+      "phone": "9345678901",
+      "status": "on the way",
+      "currentOrderId": "ORD1010",
+      "eta": "18 mins"
+    },
+    {
+      "agentId": "AG007",
+      "name": "Manoj Singh",
+      "phone": "9765432109",
+      "status": "available",
+      "currentOrderId": "",
+      "eta": "8 mins"
+    },
+    {
+      "agentId": "AG008",
+      "name": "Divya Patel",
+      "phone": "9456781230",
+      "status": "out for delivery",
+      "currentOrderId": "ORD1006",
+      "eta": "22 mins"
+    },
+    {
+      "agentId": "AG009",
+      "name": "Arjun Das",
+      "phone": "9090909090",
+      "status": "on the way",
+      "currentOrderId": "ORD1009",
+      "eta": "20 mins"
+    },
+    {
+    "agentId": "AG011",
+    "name": "Ravi Kumar",
+    "phone": "9876543210",
+    "status": "on the way",
+    "currentOrderId": "ORD1023",
+    "eta": "9 mins"
+  },
+  {
+    "agentId": "AG012",
+    "name": "Anjali Verma",
+    "phone": "9123456780",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "12 mins"
+  },
+  {
+    "agentId": "AG013",
+    "name": "Suresh Menon",
+    "phone": "9988776655",
+    "status": "out for delivery",
+    "currentOrderId": "ORD1045",
+    "eta": "5 mins"
+  },
+  {
+      "agentId": "AG010",
+      "name": "Meera Nair",
+      "phone": "9887766554",
+      "status": "available",
+      "currentOrderId": "",
+      "eta": "14 mins"
+    },
+  {
+    "agentId": "AG014",
+    "name": "Priya Das",
+    "phone": "9345678901",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "15 mins"
+  },
+  {
+    "agentId": "AG015",
+    "name": "Amit Joshi",
+    "phone": "9001122334",
+    "status": "on the way",
+    "currentOrderId": "ORD1067",
+    "eta": "7 mins"
+  },
+  {
+    "agentId": "AG016",
+    "name": "Neha Reddy",
+    "phone": "9870011223",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "10 mins"
+  },
+  {
+    "agentId": "AG017",
+    "name": "Karan Singh",
+    "phone": "9812345678",
+    "status": "out for delivery",
+    "currentOrderId": "ORD1089",
+    "eta": "4 mins"
+  },
+  {
+    "agentId": "AG018",
+    "name": "Divya Iyer",
+    "phone": "9765432109",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "13 mins"
+  },
+  {
+    "agentId": "AG019",
+    "name": "Manoj Patil",
+    "phone": "9654321098",
+    "status": "on the way",
+    "currentOrderId": "ORD1102",
+    "eta": "8 mins"
+  },
+  {
+    "agentId": "AG020",
+    "name": "Sneha Kapoor",
+    "phone": "9543210987",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "11 mins"
+  },
+  {
+    "agentId": "AG021",
+    "name": "Rahul Jain",
+    "phone": "9432109876",
+    "status": "out for delivery",
+    "currentOrderId": "ORD1125",
+    "eta": "6 mins"
+  },
+  {
+    "agentId": "AG022",
+    "name": "Pooja Sharma",
+    "phone": "9321098765",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "14 mins"
+  },
+  {
+    "agentId": "AG023",
+    "name": "Vikram Chauhan",
+    "phone": "9210987654",
+    "status": "on the way",
+    "currentOrderId": "ORD1148",
+    "eta": "9 mins"
+  },
+  {
+    "agentId": "AG024",
+    "name": "Ritika Ghosh",
+    "phone": "9109876543",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "12 mins"
+  },
+  {
+    "agentId": "AG025",
+    "name": "Arjun Malhotra",
+    "phone": "9098765432",
+    "status": "out for delivery",
+    "currentOrderId": "ORD1171",
+    "eta": "3 mins"
+  },
+  {
+    "agentId": "AG026",
+    "name": "Ishita Rao",
+    "phone": "8987654321",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "16 mins"
+  },
+  {
+    "agentId": "AG027",
+    "name": "Nikhil Bhat",
+    "phone": "8876543210",
+    "status": "on the way",
+    "currentOrderId": "ORD1194",
+    "eta": "7 mins"
+  },
+  {
+    "agentId": "AG028",
+    "name": "Tanya Mehta",
+    "phone": "8765432109",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "10 mins"
+  },
+  {
+    "agentId": "AG029",
+    "name": "Rohan Desai",
+    "phone": "8654321098",
+    "status": "out for delivery",
+    "currentOrderId": "ORD1217",
+    "eta": "5 mins"
+  },
+  {
+    "agentId": "AG030",
+    "name": "Shruti Kulkarni",
+    "phone": "8543210987",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "13 mins"
+  },
+  {
+    "agentId": "AG031",
+    "name": "Aditya Pillai",
+    "phone": "8432109876",
+    "status": "on the way",
+    "currentOrderId": "ORD1240",
+    "eta": "8 mins"
+  },
+  {
+    "agentId": "AG032",
+    "name": "Bhavna Singh",
+    "phone": "8321098765",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "11 mins"
+  },
+  {
+    "agentId": "AG033",
+    "name": "Deepak Yadav",
+    "phone": "8210987654",
+    "status": "out for delivery",
+    "currentOrderId": "ORD1263",
+    "eta": "6 mins"
+  },
+  {
+    "agentId": "AG034",
+    "name": "Kavita Mishra",
+    "phone": "8109876543",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "14 mins"
+  },
+  {
+    "agentId": "AG035",
+    "name": "Harsh Vardhan",
+    "phone": "8098765432",
+    "status": "on the way",
+    "currentOrderId": "ORD1286",
+    "eta": "9 mins"
+  },
+  {
+    "agentId": "AG036",
+    "name": "Naina Bhatt",
+    "phone": "7987654321",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "12 mins"
+  },
+  {
+    "agentId": "AG037",
+    "name": "Yash Agarwal",
+    "phone": "7876543210",
+    "status": "out for delivery",
+    "currentOrderId": "ORD1309",
+    "eta": "4 mins"
+  },
+  {
+    "agentId": "AG038",
+    "name": "Simran Kaur",
+    "phone": "7765432109",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "15 mins"
+  },
+  {
+    "agentId": "AG039",
+    "name": "Rajeev Ranjan",
+    "phone": "7654321098",
+    "status": "on the way",
+    "currentOrderId": "ORD1332",
+    "eta": "7 mins"
+  },
+  {
+    "agentId": "AG040",
+    "name": "Ayesha Khan",
+    "phone": "7543210987",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "10 mins"
+  },
+  {
+    "agentId": "AG041",
+    "name": "Mohit Chawla",
+    "phone": "7432109876",
+    "status": "out for delivery",
+    "currentOrderId": "ORD1355",
+    "eta": "5 mins"
+  },
+  {
+    "agentId": "AG042",
+    "name": "Rekha Sinha",
+    "phone": "7321098765",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "13 mins"
+  },
+  {
+    "agentId": "AG043",
+    "name": "Tarun Kapoor",
+    "phone": "7210987654",
+    "status": "on the way",
+    "currentOrderId": "ORD1378",
+    "eta": "8 mins"
+  },
+  {
+    "agentId": "AG044",
+    "name": "Lavanya Rao",
+    "phone": "7109876543",
+    "status": "available",
+    "currentOrderId": "",
+    "eta": "11 mins"
+  }
+  ]
+}

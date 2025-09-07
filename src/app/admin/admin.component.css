@@ -1,0 +1,145 @@
+/* Container Styling */
+.delivery-agent-assignment {
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    padding-bottom: 40px;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0;
+}
+
+/* Back Button */
+.back-btn {
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #cbd5e0;
+    background-color: #fff;
+    color: #1f2937;
+}
+
+.back-btn:hover {
+    background-color: #e2e8f0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Agent Card */
+.agent-card {
+    border-width: 2px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+}
+
+.agent-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Avatar Placeholder */
+.avatar-placeholder {
+    font-size: 3rem;
+    color: #6b7280;
+    background-color: #f3f4f6;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+/* Card Title & Subtitle */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 12px;
+    color: #111827;
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+/* Status Badge */
+.status-badge {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+    text-transform: capitalize;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+/* Assign Button */
+.btn-assign {
+    background-color: #10b981;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+.btn-assign:hover:enabled {
+    background-color: #059669;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.btn-assign:disabled {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Filter & Search Inputs */
+.form-control,
+.form-select {
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    outline: none;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .avatar-placeholder {
+        width: 60px;
+        height: 60px;
+        font-size: 2.5rem;
+    }
+
+    .btn-assign {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Utility */
+.border-black {
+    border: 2px solid black !important;
+}

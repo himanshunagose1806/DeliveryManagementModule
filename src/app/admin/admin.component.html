@@ -1,0 +1,61 @@
+<div class="container mt-5 delivery-agent-assignment">
+
+    <!-- Header -->
+    <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+        <h2 class="page-title mb-2 mb-md-0">Delivery Agent Assignment</h2>
+
+        <div class="d-flex align-items-center flex-wrap gap-2">
+            <!-- Search Bar -->
+            <input type="text" class="form-control" placeholder="Search agents..." [(ngModel)]="agentSearch"
+                (input)="filterAgents()" style="width: 200px;" />
+
+            <!-- Filter Dropdown -->
+            <select class="form-select" [(ngModel)]="statusFilter" (change)="filterAgents()" style="width: 200px;">
+                <option value="all">All</option>
+                <option value="available">Available</option>
+                <option value="out for delivery">Out for Delivery</option>
+                <option value="on the way">On the Way</option>
+            </select>
+
+            <!-- Back Button -->
+            <button class="btn btn-outline-secondary" (click)="goBack()">← Back</button>
+        </div>
+    </div>
+
+    <!-- Profile Cards Grid -->
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" *ngFor="let agent of filteredAgents">
+            <div class="card text-center agent-card h-100" [ngClass]="{
+            'border-success': agent.status === 'available',
+            'border-warning': agent.status === 'on the way',
+            'border-danger': agent.status === 'out for delivery'
+        }">
+                <!-- Optional Avatar -->
+                <div class="avatar-placeholder mx-auto mt-3">
+                    <i class="bi bi-person-circle"></i>
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ agent.name }}</h5>
+                    <h6 class="card-subtitle mb-3 text-muted">Agent ID : {{ agent.agentId }}</h6>
+                    <h6 class="card-subtitle mb-3 text-muted">Phone No : {{ agent.phone }}</h6>
+                    <!-- <h6 class="card-subtitle mb-3 text-muted">ETA : {{ agent.eta }}</h6> -->
+                    <span class="badge status-badge" [ngClass]="{
+                'bg-success': agent.status === 'available',
+                'bg-warning text-dark': agent.status === 'on the way',
+                'bg-danger': agent.status === 'out for delivery'
+            }">
+                        {{ agent.status }}
+                    </span>
+                </div>
+
+                <div class="card-footer bg-transparent">
+                    <button class="btn btn-assign w-100" [disabled]="agent.status !== 'available'"
+                        (click)="assignAgent(agent.agentId)">
+                        Assign
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
