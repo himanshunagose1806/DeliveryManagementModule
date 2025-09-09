@@ -1,0 +1,53 @@
+<nav class="navbar">
+    <div class="navbar-box">
+        <!-- Logo -->
+        <div class="logo-container">
+            <div class="logo-icon">
+                <span class="icon-placeholder">🍽️</span>
+            </div>
+            <div class="logo-text">
+                <h1>FoodExpress</h1>
+                <p>Deliver happiness.</p>
+            </div>
+
+            <!-- Deliver Location -->
+            <div class="location-container">
+                <i class="bi bi-geo-alt"></i>
+                <div class="location-text">
+                    <p class="deliver-to">Deliver to</p>
+                    <p class="current-location">Current Location</p>
+                </div>
+            </div>
+
+            <!-- search bar -->
+            <div class="search-bar-container desktop-only">
+                <div class="search-wrapper">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" placeholder="Search for dishes, restaurants..." [(ngModel)]="searchQuery" />
+                </div>
+            </div>
+
+            <!-- nav bar  -->
+            <div class="nav-links desktop-only">
+                <a *ngFor="let link of navLinks" [routerLink]="link.href" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }">
+                    {{ link.label }}
+                </a>
+            </div>
+
+            <!-- action buttons  -->
+            <div class="action-buttons">
+                <!-- Cart -->
+                <a routerLink="/checkout" class="btn-ghost-icon relative">
+                    <i class="bi bi-cart"></i>
+                </a>
+
+                <!-- User Profile -->
+                <a routerLink="/profile" class="btn-ghost-icon">
+                    <i class="bi bi-person"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>

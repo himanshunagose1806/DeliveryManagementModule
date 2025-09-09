@@ -1,0 +1,72 @@
+/* ===== Admin Footer Container ===== */
+.admin-footer {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.875rem;
+    color: #6b7280;
+    padding: 24px;
+}
+
+/* ===== Branding Section ===== */
+.admin-footer h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.admin-footer p {
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+
+/* ===== Quick Links ===== */
+.admin-footer ul {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.admin-footer ul li {
+    margin-bottom: 6px;
+}
+
+.footer-link {
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-link:hover {
+    color: #10b981;
+    text-decoration: underline;
+}
+
+/* ===== Contact Section ===== */
+.admin-footer .contact-info p {
+    margin-bottom: 4px;
+}
+
+/* ===== Responsive Layout ===== */
+@media (max-width: 768px) {
+    .admin-footer .row {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .admin-footer h6 {
+        font-size: 0.95rem;
+    }
+
+    .admin-footer p,
+    .footer-link {
+        font-size: 0.85rem;
+    }
+
+    .admin-footer ul {
+        display: inline-block;
+        padding-left: 0;
+    }
+}

@@ -1,10 +1,7 @@
-<div class="landing-container">
-    <h1 style="color: rgb(0, 0, 0);">🍽️ Welcome to QuickBite</h1>
-    <p>Delicious food delivered to your doorstep in minutes!</p>
-    
-    <button *ngIf="!deliveryState.isDeliveryPageActive" routerLink="/admin" class="assign-button">
-        Go to Delivery Agent Assignment
-    </button>
-</div>
+<app-admin-navbar></app-admin-navbar>
+
 
 <router-outlet></router-outlet>
+
+
+<app-admin-footer></app-admin-footer>

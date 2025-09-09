@@ -1,0 +1,120 @@
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card text-center p-3 shadow-sm">
+                <h5>Today's Earnings</h5>
+                <h3>₹{{ summary.todayEarnings }}</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center p-3 shadow-sm">
+                <h5>Total Deliveries</h5>
+                <h3>{{ summary.totalDeliveries }}</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center p-3 shadow-sm">
+                <h5>Distance Travelled</h5>
+                <h3>{{ summary.distanceTravelled }} km</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center p-3 shadow-sm">
+                <h5>Total Earnings</h5>
+                <h3>₹{{ summary.totalEarnings }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <button class="accordion-toggle" (click)="toggleSection('available')">
+            Available Orders
+            <span>{{ showAvailable ? '−' : '+' }}</span>
+        </button>
+        <div class="accordion-content" *ngIf="showAvailable">
+            <div class="row">
+                <div class="col-md-4 mb-3" *ngFor="let order of availableOrders">
+                    <div class="card p-3 shadow-sm">
+                        <!-- Order details + buttons -->
+                        <h6>Order #{{ order.orderId }}</h6>
+                        <p><strong>Pickup:</strong> {{ order.pickup }}</p>
+                        <p><strong>Drop:</strong> {{ order.drop }}</p>
+                        <p><strong>Distance:</strong> {{ order.distance }}</p>
+                        <p><strong>Time:</strong> {{ order.time }}</p>
+                        <p><strong>Customer:</strong> {{ order.customerName }} ({{ order.mobile }})</p>
+                        <div class="d-flex gap-2" style="justify-content: center;">
+                            <button class="btn btn-outline-success" (click)="acceptOrder(order.orderId)">Accept</button>
+                            <button class="btn btn-outline-danger"
+                                (click)="declineOrder(order.orderId)">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Deliveries Accordion -->
+    <div class="accordion-section">
+        <button class="accordion-toggle" (click)="toggleSection('active')">
+            Active Deliveries
+            <span>{{ showActive ? '−' : '+' }}</span>
+        </button>
+        <div class="accordion-content" *ngIf="showActive">
+            <div class="row">
+                <div class="col-md-4 mb-3" *ngFor="let delivery of activeDeliveries">
+                    <div class="card p-3 shadow-sm">
+                        <!-- Delivery details -->
+                        <h6>Order #{{ delivery.orderId }}</h6>
+                        <p><strong>Status:</strong> {{ delivery.status }}</p>
+                        <p><strong>Pickup:</strong> {{ delivery.pickup }}</p>
+                        <p><strong>Drop:</strong> {{ delivery.drop }}</p>
+                        <p><strong>Distance:</strong> {{ delivery.distance }}</p>
+                        <p><strong>Time:</strong> {{ delivery.time }}</p>
+                        <p><strong>Customer:</strong> {{ delivery.customerName }} ({{ delivery.mobile }})</p>
+                        <hr>
+
+                        <div class="status-checkbox-group">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" [checked]="isChecked1" [disabled]="isDisabled1" (change)="onCheckBoxChange1($event)">
+                                <label class="form-check-label" for="inlineCheckbox1">Picked Up</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" [checked]="isChecked2" [disabled]="isDisabled2" (change)="onCheckBoxChange2($event)">
+                                <label class="form-check-label" for="inlineCheckbox2">On the way</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" [checked]="isChecked3" [disabled]="isDisabled3" (change)="onCheckBoxChange3($event)">
+                                <label class="form-check-label" for="inlineCheckbox3">Delivered</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Completed Orders Accordion -->
+    <div class="accordion-section">
+        <button class="accordion-toggle" (click)="toggleSection('completed')">
+            Delivered Orders
+            <span>{{ showCompleted ? '−' : '+' }}</span>
+        </button>
+        <div class="accordion-content" *ngIf="showCompleted">
+            <div class="row">
+                <div class="col-md-4 mb-3" *ngFor="let order of completedOrders">
+                    <div class="card p-3 shadow-sm">
+                        <!-- Completed order details -->
+                        <h6>Order #{{ order.orderId }}</h6>
+                        <p><strong>Pickup:</strong> {{ order.pickup }}</p>
+                        <p><strong>Drop:</strong> {{ order.drop }}</p>
+                        <p><strong>Distance:</strong> {{ order.distance }}</p>
+                        <p><strong>Time:</strong> {{ order.time }}</p>
+                        <p><strong>Customer:</strong> {{ order.customerName }} ({{ order.mobile }})</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

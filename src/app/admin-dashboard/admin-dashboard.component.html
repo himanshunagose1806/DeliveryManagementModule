@@ -1,0 +1,24 @@
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-md-3" *ngFor="let item of [
+        { title: 'Total Orders', value: summary.totalOrders },
+        { title: 'Revenue Today', value: '$' + summary.revenueToday },
+        { title: 'Active Restaurants', value: summary.activeRestaurants },
+        { title: 'Active Agents', value: summary.activeAgents }
+    ]">
+            <div class="card text-center p-3 shadow-sm dashboard-card">
+                <h6>{{ item.title }}</h6>
+                <h3>{{ item.value }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card p-4 shadow-sm">
+                <h5>Recent Orders</h5>
+                <p>Coming soon: order table, filters, actions...</p>
+            </div>
+        </div>
+    </div>
+</div>

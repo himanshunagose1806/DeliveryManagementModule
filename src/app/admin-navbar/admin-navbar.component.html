@@ -1,0 +1,31 @@
+<!-- Admin Header -->
+<nav class="admin-header navbar foodie-bg text-white py-3 px-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap w-100">
+
+        <!-- Branding -->
+        <div class="d-flex align-items-center gap-3">
+            <div>
+                <h4 class="mb-0 fw-bold"><b>F</b>oodie<b>D</b>elivery</h4>
+                <small class="text-light">Admin Control Center</small>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="d-flex gap-4 flex-wrap">
+            <a routerLink="/admin-dashboard" routerLinkActive="active" class="nav-link text-white">Dashboard</a>
+            <a routerLink="/agent-dashboard" routerLinkActive="active" class="nav-link text-white">Agent Dashboard</a>
+            <a routerLink="/orders" routerLinkActive="active" class="nav-link text-white">Orders</a>
+            <a routerLink="/agents" routerLinkActive="active" class="nav-link text-white">Agents</a>
+            <a routerLink="/admin/restaurants" routerLinkActive="active" class="nav-link text-white">Restaurants</a>
+            <a routerLink="/admin/payments" routerLinkActive="active" class="nav-link text-white">Payments</a>
+        </div>
+
+        <!-- User Actions -->
+        <div class="d-flex align-items-center gap-3">
+            <span class="text-light fw-semibold" style="font-size: 18px;">Welcome, Admin</span>
+            <button class="btn btn-light btn-sm">Settings</button>
+            <button routerLink="/" class="btn btn-outline-light btn-sm">Logout</button>
+        </div>
+
+    </div>
+</nav>

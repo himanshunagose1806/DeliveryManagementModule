@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { DeliveryService } from './delivery.service';
 import Delivery from './Delivery';
 import { Router } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -18,5 +21,9 @@ export class AppComponent {
 
   goToDeliveryPage() {
     this.router.navigate(['/admin']);
+  }
+
+  showAdminDashboard() {
+    this.router.navigate(['/agent']);
   }
 }

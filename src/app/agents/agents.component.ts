@@ -1,30 +1,31 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DeliveryService } from '../delivery.service';
-import * as deliveryAgentsData from '../../../deliveryAgent.json';
+import * as deliveryAgentsData from '../../../db.json';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-admin',
+  selector: 'app-agents',
   standalone: false,
-  templateUrl: './admin.component.html',
-  styleUrl: './admin.component.css'
+  templateUrl: './agents.component.html',
+  styleUrl: './agents.component.css'
 })
-export class AdminComponent {
-  agents: any[] = [];
+export class AgentsComponent {
+  agent: any[] = [];
   agentFilter: string = '';
   filteredAgents: any[] = [];
   agentSearch: string = '';
   statusFilter: string = 'all';
+  agentId : string = '';
   
   constructor(private router : Router, private deliveryState : DeliveryService) {}
 
   ngOnInit() {
     this.deliveryState.isDeliveryPageActive = true;
-    this.agents = deliveryAgentsData.DeliveryAgent;
-    this.filteredAgents = this.agents;
+    this.agent = deliveryAgentsData.DeliveryAgent;
+    this.filteredAgents = this.agent;
   }
 
   ngOnDestroy() {
@@ -36,23 +37,23 @@ export class AdminComponent {
     this.router.navigate(['/']);
   }
 
-  assignAgent(agentId: string): void {
-    alert(`Agent assigned with ID: ${agentId}`);
-  }
-
   filterAgents() {
     const search = this.agentSearch.toLowerCase();
     const status = this.statusFilter;
-  
-    this.filteredAgents = this.agents.filter(agent => {
+    
+    this.filteredAgents = this.agent.filter(agent => {
       const matchesSearch =
-        agent.name.toLowerCase().includes(search) ||
-        agent.agentId.toString().includes(search);
-  
+      agent.name.toLowerCase().includes(search);
+      
       const matchesStatus =
-        status === 'all' || agent.status.toLowerCase() === status;
-  
+      status === 'all' || agent.status.toLowerCase() === status;
+      
       return matchesSearch && matchesStatus;
     });
   }
+
+  assignAgent(agentAssign: string) {
+    this.agentId = agentAssign;
+    return this.agentId;
+  }  
 }
