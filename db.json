@@ -74,14 +74,26 @@
         {
           "Itemid": 2,
           "name": "Misal Pav",
-          "price": 60,
+          "price": 50,
           "image": "MenuItems/misal-pav.jpg"
         },
         {
           "Itemid": 3,
           "name": "Tandoori Chicken",
-          "price": 120,
+          "price": 130,
           "image": "MenuItems/tandoori chicken.jpg"
+        },
+        {
+          "Itemid": 4,
+          "name": "Pav Bhaji",
+          "price": 110,
+          "image": "/pav bhaji.jpg"
+        },
+        {
+          "Itemid": 5,
+          "name": "Paneer Butter Masala",
+          "price": 145,
+          "image": "/paneerbutter masala.jpg"
         }
       ],
       "id": "1b4e"
@@ -172,12 +184,6 @@
           "name": "Rasgulla",
           "price": 80,
           "image": "MenuItems/rasgulla.jpg"
-        },
-        {
-          "Itemid": 3,
-          "name": "Rice Kheer",
-          "price": 40,
-          "image": "MenuItems/rice-kheer.jpg"
         }
       ],
       "id": "548e"
@@ -209,8 +215,8 @@
       "id": "FD1026",
       "customer": "Priya Nair",
       "restaurant": "Green Bowl",
-      "status": "Pending",
-      "agent": ""
+      "status": "Assigned",
+      "agent": "Karan Mehta"
     },
     {
       "id": "FD1027",
@@ -331,9 +337,9 @@
       "agentId": "AG005",
       "name": "Karan Mehta",
       "phone": "8899001122",
-      "status": "available",
-      "currentOrderId": "",
-      "eta": 0,
+      "status": "out for delivery",
+      "currentOrderId": "FD1026",
+      "eta": 15,
       "id": "d82f"
     },
     {

@@ -2,27 +2,8 @@ import { ActivatedRoute } from '@angular/router';
 import { AdminDataService } from '../../admin-data.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
-interface MenuItem {
-  Itemid: number;
-  name: string;
-  price: number;
-  image: string;
-}
-
-export interface Menu {
-  id: string;
-  restaurantId: number;
-  items: MenuItem[];
-}
-
-export interface Restaurant {
-  id: string;
-  name: string;
-  rating: number;
-  image: string;
-  cusine: string;
-}
+import { MenuItem } from '../../models/menu-item.model';
+import { Menu } from '../../models/menu.model';
 
 @Component({
   selector: 'app-restaurant-by-id',
@@ -32,12 +13,16 @@ export interface Restaurant {
 })
 
 export class RestaurantByIDComponent {
+  menuItems: MenuItem[] = [];
+  editingItem: MenuItem | null = null;
+  editForm: MenuItem = { Itemid: 0, name: '', price: 0, image: '' };
+  newItem: MenuItem = { Itemid: 0, name: '', price: 0, image: '' };
   restaurantId!: number;
-  menuItems: any[] = [];
-  editingItem: any = null;
-  editForm = { name: '', price: 0, image: '' };
+  showAddForm: boolean = false;
+
   baseUrl = 'http://localhost:3000'; 
 
+  
   constructor(private http: HttpClient, private route: ActivatedRoute, private restaurantService: AdminDataService) {}
 
   ngOnInit(): void {
@@ -51,17 +36,16 @@ export class RestaurantByIDComponent {
     this.editingItem = item;
     this.editForm = { ...item };
   }
-
+  
   deleteItem(itemId: number): void {
     const menuUrl = `${this.baseUrl}/menus?restaurantId=${this.restaurantId}`;
 
     this.http.get<any[]>(menuUrl).subscribe(menus => {
       const menu = menus[0];
       if (!menu || !menu.items) return;
-
-      const updatedItems = menu.items.filter((item: any) => item.Itemid !== itemId);
-      // const updatedItems = menu.items.filter(item => item.Itemid !== itemId);
-
+      
+      const updatedItems = menu.items.filter((item: MenuItem) => item.Itemid !== itemId);
+      
       this.http.patch(`${this.baseUrl}/menus/${menu.id}`, { items: updatedItems }).subscribe(() => {
         this.menuItems = updatedItems;
         alert(`🗑️ Item ${itemId} deleted successfully`);
@@ -70,31 +54,48 @@ export class RestaurantByIDComponent {
   }
 
   saveEdit(): void {
-    const menuUrl = `${this.baseUrl}/menus?restaurantId=${this.restaurantId}`;
+  if (!this.editingItem) return;
 
-    this.http.get<any[]>(menuUrl).subscribe(menus => {
+  const menuUrl = `${this.baseUrl}/menus?restaurantId=${this.restaurantId}`;
+
+  this.http.get<Menu[]>(menuUrl).subscribe(menus => {
+    const menu = menus[0];
+    if (!menu) return;
+
+    const index = menu.items.findIndex((i: MenuItem) => i.Itemid === this.editingItem!.Itemid);
+    if (index === -1) return;
+
+    menu.items[index] = { ...menu.items[index], ...this.editForm };
+
+    this.http.patch(`${this.baseUrl}/menus/${menu.id}`, { items: menu.items }).subscribe(() => {
+      this.menuItems = [...menu.items];
+      this.editingItem = null;
+      alert(`✅ Item updated successfully`);
+    });
+  });
+}
+  
+
+ addItem(): void {
+    const menuUrl = `${this.baseUrl}/menus?restaurantId=${this.restaurantId}`;
+  
+    this.http.get<Menu[]>(menuUrl).subscribe(menus => {
       const menu = menus[0];
       if (!menu) return;
-
-      // Find index of the item to update
-      const index = menu.items.findIndex((i: any) => i.Itemid === this.editingItem.Itemid);
-      if (index === -1) return;
-
-      // Update the item directly
-      menu.items[index] = { ...menu.items[index], ...this.editForm };
-
-      // Save back to database
-      this.http.patch(`${this.baseUrl}/menus/${menu.id}`, { items: menu.items }).subscribe(() => {
-        this.menuItems = [...menu.items]; // update local view
-        this.editingItem = null;
-        alert(`✅ Item updated successfully`);
+    
+      const maxId = Math.max(...menu.items.map(i => i.Itemid), 0);
+      const newItemWithId = { ...this.newItem, Itemid: maxId + 1 };
+    
+      const updatedItems = [...menu.items, newItemWithId];
+    
+      this.http.patch(`${this.baseUrl}/menus/${menu.id}`, { items: updatedItems }).subscribe(() => {
+        this.menuItems = updatedItems;
+        this.newItem = { Itemid: 0, name: '', price: 0, image: '' };
+        this.showAddForm = false;
+        alert(`✅ Item "${newItemWithId.name}" added successfully`);
       });
     });
   }
-
   
 
-  addItem(): void {
-    // implement add logic here
-  }
 }

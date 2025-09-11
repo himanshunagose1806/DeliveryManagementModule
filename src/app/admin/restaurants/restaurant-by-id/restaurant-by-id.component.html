@@ -11,14 +11,65 @@
                 <h4 class="item-name">{{ item.name }}</h4>
                 <p class="item-price">₹{{ item.price }}</p>
                 <div class="menu-actions">
-                    <button class="edit-btn" (click)="editItem(item)">✏️ Edit</button>
-                    <button class="delete-btn" (click)="deleteItem(item.Itemid)">🗑️ Delete</button>
+                    <button class="btn edit-btn" (click)="editItem(item)">✏️ Edit</button>
+                    <button class="btn delete-btn" (click)="deleteItem(item.Itemid)">🗑️ Delete</button>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="add-button">
-        <button class="add-btn" (click)="addItem()">➕ Add New Item</button>
+        <button class="btn add-btn" (click)="showAddForm = !showAddForm">
+            {{ showAddForm ? '❌ Cancel Add' : '➕ Add New Item' }}
+        </button>
+    </div>
+</div>
+
+<!-- Edit Form -->
+<div *ngIf="editingItem" class="edit-panel">
+    <h5>✏️ Editing Item #{{ editingItem.Itemid }}</h5>
+
+    <div class="form-group">
+        <label>Name:</label>
+        <input class="form-control" [(ngModel)]="editForm.name">
+    </div>
+
+    <div class="form-group">
+        <label>Price (₹):</label>
+        <input type="number" class="form-control" [(ngModel)]="editForm.price">
+    </div>
+
+    <div class="form-group">
+        <label>Image Path:</label>
+        <input class="form-control" [(ngModel)]="editForm.image">
+    </div>
+
+    <div class="form-actions">
+        <button class="btn btn-success" (click)="saveEdit()">💾 Save</button>
+        <button class="btn btn-secondary" (click)="editingItem = null">❌ Cancel</button>
+    </div>
+</div>
+
+<!-- Add Form -->
+<div *ngIf="showAddForm" class="add-panel mt-4 p-4 bg-light rounded shadow-sm">
+    <h5 class="mb-3">➕ Add New Menu Item</h5>
+
+    <div class="mb-2">
+        <label>Name:</label>
+        <input class="form-control" [(ngModel)]="newItem.name">
+    </div>
+
+    <div class="mb-2">
+        <label>Price (₹):</label>
+        <input type="number" class="form-control" [(ngModel)]="newItem.price">
+    </div>
+
+    <div class="mb-2">
+        <label>Image Path:</label>
+        <input class="form-control" [(ngModel)]="newItem.image">
+    </div>
+
+    <div class="mt-3">
+        <button class="btn btn-success" (click)="addItem()">➕ Add Item</button>
     </div>
 </div>
