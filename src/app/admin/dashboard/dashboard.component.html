@@ -1,0 +1,74 @@
+<div class="admin-dashboard-wrapper">
+    <div class="container-fluid px-4 py-4 admin-dashboard">
+        <h2 class="fw-bold mb-4 text-dark">📊 Admin Dashboard</h2>
+        <div class="row row-cols-2 row-cols-md-3 row-cols-xl-6 g-4">
+
+            <!-- Orders Summary -->
+            <div class="col-4 col-md-4 col-xl-2">
+                <div class="card dashboard-card text-center h-100">
+                    <div class="card-body">
+                        <div class="metric-icon text-primary">🧾</div>
+                        <h6 class="card-title">Total Orders</h6>
+                        <p class="metric-value text-primary">{{ totalOrders }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Agents -->
+            <div class="col-4 col-md-4 col-xl-2">
+                <div class="card dashboard-card text-center h-100">
+                    <div class="card-body">
+                        <div class="metric-icon text-success">👥</div>
+                        <h6 class="card-title">Active Agents</h6>
+                        <p class="metric-value text-success">{{ activeAgents }}</p>
+                        <small class="text-muted">{{ availableAgents }} available</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avg Delivery Time -->
+            <div class="col-4 col-md-4 col-xl-2">
+                <div class="card dashboard-card text-center h-100">
+                    <div class="card-body">
+                        <div class="metric-icon text-warning">⏱</div>
+                        <h6 class="card-title">Avg Delivery Time</h6>
+                        <p class="metric-value text-warning">{{ avgDeliveryTime }} mins</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Orders -->
+            <div class="col-4 col-md-4 col-xl-2">
+                <div class="card dashboard-card text-center h-100">
+                    <div class="card-body">
+                        <div class="metric-icon text-secondary">⏳</div>
+                        <h6 class="card-title">Pending Orders</h6>
+                        <p class="metric-value text-secondary">{{ pendingOrders }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delivered Orders -->
+            <div class="col-4 col-md-4 col-xl-2">
+                <div class="card dashboard-card text-center h-100">
+                    <div class="card-body">
+                        <div class="metric-icon text-success">✅</div>
+                        <h6 class="card-title">Delivered</h6>
+                        <p class="metric-value text-success">{{ deliveredOrders }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cancelled Orders -->
+            <div class="col-4 col-md-4 col-xl-2">
+                <div class="card dashboard-card text-center h-100">
+                    <div class="card-body">
+                        <div class="metric-icon text-danger">❌</div>
+                        <h6 class="card-title">Cancelled</h6>
+                        <p class="metric-value text-danger">{{ cancelledOrders }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

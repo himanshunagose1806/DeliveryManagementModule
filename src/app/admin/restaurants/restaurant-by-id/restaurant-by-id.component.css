@@ -1,0 +1,123 @@
+.menu-panel {
+    padding: 2rem;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+}
+
+.menu-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.menu-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+}
+
+.menu-image img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.menu-details {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item-id {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 0.25rem;
+}
+
+.item-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+.item-price {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+.menu-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-btn,
+.delete-btn {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #e0f0ff;
+    color: #007bff;
+}
+
+.edit-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.delete-btn {
+    background-color: #ffe0e0;
+    color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.add-button {
+    text-align: right;
+    margin-top: 2rem;
+}
+
+.add-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}

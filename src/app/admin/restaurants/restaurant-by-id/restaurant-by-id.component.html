@@ -1,0 +1,24 @@
+<div class="menu-panel">
+    <h3 class="menu-title">🍽️ Menu for Restaurant #{{ restaurantId }}</h3>
+
+    <div class="menu-grid">
+        <div class="menu-card" *ngFor="let item of menuItems">
+            <div class="menu-image">
+                <img [src]="'assets/' + item.image" alt="{{ item.name }}">
+            </div>
+            <div class="menu-details">
+                <p class="item-id">ID: {{ item.Itemid }}</p>
+                <h4 class="item-name">{{ item.name }}</h4>
+                <p class="item-price">₹{{ item.price }}</p>
+                <div class="menu-actions">
+                    <button class="edit-btn" (click)="editItem(item)">✏️ Edit</button>
+                    <button class="delete-btn" (click)="deleteItem(item.Itemid)">🗑️ Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="add-button">
+        <button class="add-btn" (click)="addItem()">➕ Add New Item</button>
+    </div>
+</div>

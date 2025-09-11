@@ -1,0 +1,61 @@
+/* ===== Admin Footer Styling ===== */
+.admin-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    padding: 1.5rem;
+    font-size: 0.875rem;
+    color: #6c757d;
+    width: 100%;
+}
+
+/* Footer Links */
+.admin-footer .footer-link {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.admin-footer .footer-link:hover {
+    color: #343a40;
+    text-decoration: underline;
+}
+
+/* Footer Headings */
+.admin-footer h6 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #343a40;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .admin-footer .row>div {
+        margin-bottom: 1rem;
+    }
+}
+
+/* ===== Sticky Footer Setup ===== */
+
+/* Ensure full height layout */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main wrapper to push footer down */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content wrapper that grows */
+.main-content {
+    flex: 1 0 auto;
+}
+
+/* Footer stays at bottom */
+.admin-footer {
+    flex-shrink: 0;
+}

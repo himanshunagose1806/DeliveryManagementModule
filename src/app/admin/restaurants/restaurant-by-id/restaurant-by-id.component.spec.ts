@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminDashboardComponent } from './admin-dashboard.component';
+import { RestaurantByIDComponent } from './restaurant-by-id.component';
 
-describe('AdminDashboardComponent', () => {
-  let component: AdminDashboardComponent;
-  let fixture: ComponentFixture<AdminDashboardComponent>;
+describe('RestaurantByIDComponent', () => {
+  let component: RestaurantByIDComponent;
+  let fixture: ComponentFixture<RestaurantByIDComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AdminDashboardComponent]
+      declarations: [RestaurantByIDComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AdminDashboardComponent);
+    fixture = TestBed.createComponent(RestaurantByIDComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

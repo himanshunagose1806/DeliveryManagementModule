@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { DeliveryService } from '../delivery.service';
-import * as deliveryAgentsData from '../../../db.json';
+import { DeliveryService } from '../../delivery.service';
+import * as deliveryAgentsData from '../../../../db.json';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-agents',
+  selector: 'app-agent-assignment',
   standalone: false,
-  templateUrl: './agents.component.html',
-  styleUrl: './agents.component.css'
+  templateUrl: './agent-assignment.component.html',
+  styleUrl: './agent-assignment.component.css'
 })
-export class AgentsComponent {
+export class AgentAssignmentComponent {
   agent: any[] = [];
   agentFilter: string = '';
   filteredAgents: any[] = [];
@@ -52,6 +52,7 @@ export class AgentsComponent {
     });
   }
 
+  
   assignAgent(agentAssign: string) {
     this.agentId = agentAssign;
     return this.agentId;

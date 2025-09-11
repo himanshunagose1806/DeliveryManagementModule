@@ -1,0 +1,17 @@
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.card {
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08);
+} */

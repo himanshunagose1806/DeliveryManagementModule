@@ -1,0 +1,41 @@
+<div class="container mt-4 mb-5">
+    <h3 class="fw-bold mb-4">🧾 Orders Overview</h3>
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-4" *ngFor="let order of orders">
+            <div class="card shadow-sm border-0 h-100" [attr.data-status]="order.status">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title mb-2">Order #{{ order.id }}</h5>
+                        <p class="mb-1"><strong>Customer : </strong> {{ order.customer }}</p>
+                        <p class="mb-1"><strong>Restaurant : </strong> {{ order.restaurant }}</p>
+                        <p class="mb-2">
+                            <strong>Status : </strong>
+                            <span class="badge" [ngClass]="{
+                                'bg-warning': order.status === 'Pending',
+                                'bg-success': order.status === 'Delivered' || order.status === 'Assigned',
+                                'bg-danger': order.status === 'Cancelled'
+                            }">{{ order.status }}</span>
+                        </p>
+                        <p class="mb-2"><strong>Agent : </strong> {{ order.agent || 'Unassigned' }}</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-3">
+                        <div *ngIf="!order.agent" class="d-flex flex-column w-100">
+                            <select class="form-select form-select-sm mb-2" [(ngModel)]="selectedAgent[order.id]">
+                                <option [ngValue]="null">Select Agent</option>
+                                <option *ngFor="let agent of availableAgents" [ngValue]="agent">{{ agent.name }}
+                                </option>
+                            </select>
+
+                            <button class="btn btn-sm btn-outline-primary"
+                                (click)="assignAgent(order.id, selectedAgent[order.id])"
+                                [disabled]="!selectedAgent[order.id]">
+                                Assign Agent
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

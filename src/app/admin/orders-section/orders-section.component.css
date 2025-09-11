@@ -1,0 +1,75 @@
+/* === Card Container === */
+.card {
+    border-radius: 12px;
+    background-color: #fdfdfd;
+    border: 1px solid #e0e0e0;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    position: relative;
+}
+
+.card:hover {
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+}
+
+/* === Status Border Accent === */
+.card[data-status="Pending"] {
+    border-left: 5px solid #ffc107;
+}
+
+.card[data-status="Delivered"] {
+    border-left: 5px solid #28a745;
+}
+
+.card[data-status="Cancelled"] {
+    border-left: 5px solid #dc3545;
+}
+
+/* === Card Title === */
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 0.5rem;
+}
+
+/* === Card Text === */
+.card-body p {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    color: #495057;
+}
+
+/* === Badge Styling === */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.35em 0.6em;
+    border-radius: 6px;
+}
+
+/* === Button Styling === */
+.card-body .btn {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+}
+
+/* === Responsive Grid === */
+@media (max-width: 576px) {
+    .card-body {
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-body .btn {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

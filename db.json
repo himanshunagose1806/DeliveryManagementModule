@@ -1,28 +1,322 @@
 {
+  "Restaurants": [
+    {
+      "id": "1",
+      "name": "Sree Annapoorna",
+      "rating": 4.2,
+      "image": "restaurant1.jpg",
+      "cusine": "South_Indian"
+    },
+    {
+      "id": "2",
+      "name": "Hotel Hari ",
+      "rating": 4.1,
+      "image": "restaurant2.jpg",
+      "cusine": "Maharashtrian"
+    },
+    {
+      "id": "3",
+      "name": "Flavors of Fusion",
+      "rating": 4.5,
+      "image": "restaurant3.jpg",
+      "cusine": "North_Indian"
+    },
+    {
+      "id": "4",
+      "name": "Little Italy",
+      "rating": 3.8,
+      "image": "restaurant4.jpg",
+      "cusine": "Italian"
+    },
+    {
+      "id": "5",
+      "name": "Polar Bear",
+      "rating": 4.3,
+      "image": "restaurant5.jpg",
+      "cusine": "IceCream"
+    },
+    {
+      "id": "6",
+      "name": "Rajpurohit",
+      "rating": 4.5,
+      "image": "restaurant6.jpg",
+      "cusine": "Sweets"
+    }
+  ],
+  "menus": [
+    {
+      "restaurantId": 1,
+      "items": [
+        {
+          "Itemid": 1,
+          "name": "Idli",
+          "price": 30,
+          "image": "MenuItems/idli.jpg"
+        },
+        {
+          "Itemid": 2,
+          "name": "Dosa",
+          "price": 40,
+          "image": "MenuItems/Dosa.jpg"
+        },
+        {
+          "Itemid": 3,
+          "name": "Vada",
+          "price": 25,
+          "image": "MenuItems/sambar.jpg"
+        }
+      ],
+      "id": "ac6e"
+    },
+    {
+      "restaurantId": 2,
+      "items": [
+        {
+          "Itemid": 2,
+          "name": "Misal Pav",
+          "price": 60,
+          "image": "MenuItems/misal-pav.jpg"
+        },
+        {
+          "Itemid": 3,
+          "name": "Tandoori Chicken",
+          "price": 120,
+          "image": "MenuItems/tandoori chicken.jpg"
+        }
+      ],
+      "id": "1b4e"
+    },
+    {
+      "restaurantId": 3,
+      "items": [
+        {
+          "Itemid": 1,
+          "name": "Shahi Paneer",
+          "price": 100,
+          "image": "MenuItems/shahi paneer.jpg"
+        },
+        {
+          "Itemid": 2,
+          "name": "Rogan Josh",
+          "price": 120,
+          "image": "MenuItems/Rogan Josh.jpg"
+        },
+        {
+          "Itemid": 3,
+          "name": "Butter Chicken",
+          "price": 150,
+          "image": "MenuItems/butter chicken.jpg"
+        }
+      ],
+      "id": "e5b4"
+    },
+    {
+      "restaurantId": 4,
+      "items": [
+        {
+          "Itemid": 1,
+          "name": "Pizza",
+          "price": 180,
+          "image": "MenuItems/pizza.jpg"
+        },
+        {
+          "Itemid": 2,
+          "name": "Pasta",
+          "price": 130,
+          "image": "MenuItems/pasta.jpg"
+        },
+        {
+          "Itemid": 3,
+          "name": "Minestrone",
+          "price": 150,
+          "image": "MenuItems/Minestrone.jpg"
+        }
+      ],
+      "id": "3017"
+    },
+    {
+      "restaurantId": 5,
+      "items": [
+        {
+          "Itemid": 1,
+          "name": "Chocolate Ice Cream",
+          "price": 60,
+          "image": "MenuItems/C_IceCream.jpg"
+        },
+        {
+          "Itemid": 2,
+          "name": "Strawberry Ice Cream",
+          "price": 50,
+          "image": "MenuItems/S_IceCream.jpg"
+        },
+        {
+          "Itemid": 3,
+          "name": "Sundae",
+          "price": 120,
+          "image": "MenuItems/IceCream-sundae.jpg"
+        }
+      ],
+      "id": "5041"
+    },
+    {
+      "restaurantId": 6,
+      "items": [
+        {
+          "Itemid": 1,
+          "name": "Gulab Jamun",
+          "price": 80,
+          "image": "MenuItems/gulab-jamun.jpg"
+        },
+        {
+          "Itemid": 2,
+          "name": "Rasgulla",
+          "price": 80,
+          "image": "MenuItems/rasgulla.jpg"
+        },
+        {
+          "Itemid": 3,
+          "name": "Rice Kheer",
+          "price": 40,
+          "image": "MenuItems/rice-kheer.jpg"
+        }
+      ],
+      "id": "548e"
+    }
+  ],
+  "Orders": [
+    {
+      "id": "FD1023",
+      "customer": "Ravi Kumar",
+      "restaurant": "Spice Villa",
+      "status": "Assigned",
+      "agent": "Ravi Kumar"
+    },
+    {
+      "id": "FD1024",
+      "customer": "Anjali Mehta",
+      "restaurant": "Burger Hub",
+      "status": "Assigned",
+      "agent": "Priya Sharma"
+    },
+    {
+      "id": "FD1025",
+      "customer": "Karan Singh",
+      "restaurant": "Tandoori Treats",
+      "status": "Assigned",
+      "agent": "Amit Verma"
+    },
+    {
+      "id": "FD1026",
+      "customer": "Priya Nair",
+      "restaurant": "Green Bowl",
+      "status": "Pending",
+      "agent": ""
+    },
+    {
+      "id": "FD1027",
+      "customer": "Mohit Verma",
+      "restaurant": "Pizza Junction",
+      "status": "Pending",
+      "agent": ""
+    },
+    {
+      "id": "FD1028",
+      "customer": "Neha Sharma",
+      "restaurant": "Wrap & Roll",
+      "status": "Pending",
+      "agent": ""
+    },
+    {
+      "id": "FD1029",
+      "customer": "Amit Joshi",
+      "restaurant": "Biryani Express",
+      "status": "Pending",
+      "agent": ""
+    },
+    {
+      "id": "FD1030",
+      "customer": "Divya Rao",
+      "restaurant": "Sushi House",
+      "status": "Pending",
+      "agent": ""
+    },
+    {
+      "id": "FD1031",
+      "customer": "Siddharth Jain",
+      "restaurant": "Green Bowl",
+      "status": "Pending",
+      "agent": ""
+    },
+    {
+      "id": "FD1032",
+      "customer": "Meera Iyer",
+      "restaurant": "Spice Villa",
+      "status": "Pending",
+      "agent": ""
+    },
+    {
+      "id": "FD1033",
+      "customer": "Rajesh Pillai",
+      "restaurant": "Burger Hub",
+      "status": "Pending",
+      "agent": ""
+    },
+    {
+      "id": "FD1034",
+      "customer": "Tanvi Desai",
+      "restaurant": "Wrap & Roll",
+      "status": "Pending",
+      "agent": ""
+    },
+    {
+      "id": "FD1035",
+      "customer": "Nikhil Bhatia",
+      "restaurant": "Tandoori Treats",
+      "status": "Pending",
+      "agent": ""
+    },
+    {
+      "id": "FD1036",
+      "customer": "Isha Kapoor",
+      "restaurant": "Pizza Junction",
+      "status": "Pending",
+      "agent": ""
+    },
+    {
+      "id": "FD1037",
+      "customer": "Manoj Reddy",
+      "restaurant": "Sushi House",
+      "status": "Pending",
+      "agent": ""
+    }
+  ],
   "DeliveryAgent": [
     {
       "agentId": "AG001",
       "name": "Ravi Kumar",
       "phone": "9876543210",
-      "status": "available",
-      "currentOrderId": "",
-      "eta": "10 mins"
+      "status": "out for delivery",
+      "currentOrderId": "FD1023",
+      "eta": 15,
+      "id": "6f85"
     },
     {
       "agentId": "AG002",
       "name": "Priya Sharma",
       "phone": "9123456789",
       "status": "out for delivery",
-      "currentOrderId": "ORD1003",
-      "eta": "25 mins"
+      "currentOrderId": "FD1024",
+      "eta": 15,
+      "id": "cbd9"
     },
     {
       "agentId": "AG003",
       "name": "Amit Verma",
       "phone": "9988776655",
-      "status": "on the way",
-      "currentOrderId": "ORD1005",
-      "eta": "15 mins"
+      "status": "out for delivery",
+      "currentOrderId": "FD1025",
+      "eta": 15,
+      "id": "88a0"
     },
     {
       "agentId": "AG004",
@@ -30,23 +324,26 @@
       "phone": "9012345678",
       "status": "available",
       "currentOrderId": "",
-      "eta": "12 mins"
+      "eta": 0,
+      "id": "0013"
     },
     {
       "agentId": "AG005",
       "name": "Karan Mehta",
       "phone": "8899001122",
-      "status": "out for delivery",
-      "currentOrderId": "ORD1008",
-      "eta": "30 mins"
+      "status": "available",
+      "currentOrderId": "",
+      "eta": 0,
+      "id": "d82f"
     },
     {
       "agentId": "AG006",
       "name": "Neha Reddy",
       "phone": "9345678901",
-      "status": "on the way",
-      "currentOrderId": "ORD1010",
-      "eta": "18 mins"
+      "status": "available",
+      "currentOrderId": "",
+      "eta": 0,
+      "id": "8ecb"
     },
     {
       "agentId": "AG007",
@@ -54,303 +351,71 @@
       "phone": "9765432109",
       "status": "available",
       "currentOrderId": "",
-      "eta": "8 mins"
+      "eta": 0,
+      "id": "b0c8"
     },
     {
-      "agentId": "AG008",
-      "name": "Divya Patel",
-      "phone": "9456781230",
-      "status": "out for delivery",
-      "currentOrderId": "ORD1006",
-      "eta": "22 mins"
-    },
-    {
-      "agentId": "AG009",
-      "name": "Arjun Das",
-      "phone": "9090909090",
-      "status": "on the way",
-      "currentOrderId": "ORD1009",
-      "eta": "20 mins"
-    },
-    {
-    "agentId": "AG011",
-    "name": "Ravi Kumar",
-    "phone": "9876543210",
-    "status": "on the way",
-    "currentOrderId": "ORD1023",
-    "eta": "9 mins"
-  },
-  {
-    "agentId": "AG012",
-    "name": "Anjali Verma",
-    "phone": "9123456780",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "12 mins"
-  },
-  {
-    "agentId": "AG013",
-    "name": "Suresh Menon",
-    "phone": "9988776655",
-    "status": "out for delivery",
-    "currentOrderId": "ORD1045",
-    "eta": "5 mins"
-  },
-  {
-      "agentId": "AG010",
-      "name": "Meera Nair",
-      "phone": "9887766554",
+      "agentId": "AG030",
+      "name": "Shruti Kulkarni",
+      "phone": "8543210987",
       "status": "available",
       "currentOrderId": "",
-      "eta": "14 mins"
+      "eta": 0,
+      "id": "e390"
     },
-  {
-    "agentId": "AG014",
-    "name": "Priya Das",
-    "phone": "9345678901",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "15 mins"
-  },
-  {
-    "agentId": "AG015",
-    "name": "Amit Joshi",
-    "phone": "9001122334",
-    "status": "on the way",
-    "currentOrderId": "ORD1067",
-    "eta": "7 mins"
-  },
-  {
-    "agentId": "AG016",
-    "name": "Neha Reddy",
-    "phone": "9870011223",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "10 mins"
-  },
-  {
-    "agentId": "AG017",
-    "name": "Karan Singh",
-    "phone": "9812345678",
-    "status": "out for delivery",
-    "currentOrderId": "ORD1089",
-    "eta": "4 mins"
-  },
-  {
-    "agentId": "AG018",
-    "name": "Divya Iyer",
-    "phone": "9765432109",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "13 mins"
-  },
-  {
-    "agentId": "AG019",
-    "name": "Manoj Patil",
-    "phone": "9654321098",
-    "status": "on the way",
-    "currentOrderId": "ORD1102",
-    "eta": "8 mins"
-  },
-  {
-    "agentId": "AG020",
-    "name": "Sneha Kapoor",
-    "phone": "9543210987",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "11 mins"
-  },
-  {
-    "agentId": "AG021",
-    "name": "Rahul Jain",
-    "phone": "9432109876",
-    "status": "out for delivery",
-    "currentOrderId": "ORD1125",
-    "eta": "6 mins"
-  },
-  {
-    "agentId": "AG022",
-    "name": "Pooja Sharma",
-    "phone": "9321098765",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "14 mins"
-  },
-  {
-    "agentId": "AG023",
-    "name": "Vikram Chauhan",
-    "phone": "9210987654",
-    "status": "on the way",
-    "currentOrderId": "ORD1148",
-    "eta": "9 mins"
-  },
-  {
-    "agentId": "AG024",
-    "name": "Ritika Ghosh",
-    "phone": "9109876543",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "12 mins"
-  },
-  {
-    "agentId": "AG025",
-    "name": "Arjun Malhotra",
-    "phone": "9098765432",
-    "status": "out for delivery",
-    "currentOrderId": "ORD1171",
-    "eta": "3 mins"
-  },
-  {
-    "agentId": "AG026",
-    "name": "Ishita Rao",
-    "phone": "8987654321",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "16 mins"
-  },
-  {
-    "agentId": "AG027",
-    "name": "Nikhil Bhat",
-    "phone": "8876543210",
-    "status": "on the way",
-    "currentOrderId": "ORD1194",
-    "eta": "7 mins"
-  },
-  {
-    "agentId": "AG028",
-    "name": "Tanya Mehta",
-    "phone": "8765432109",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "10 mins"
-  },
-  {
-    "agentId": "AG029",
-    "name": "Rohan Desai",
-    "phone": "8654321098",
-    "status": "out for delivery",
-    "currentOrderId": "ORD1217",
-    "eta": "5 mins"
-  },
-  {
-    "agentId": "AG030",
-    "name": "Shruti Kulkarni",
-    "phone": "8543210987",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "13 mins"
-  },
-  {
-    "agentId": "AG031",
-    "name": "Aditya Pillai",
-    "phone": "8432109876",
-    "status": "on the way",
-    "currentOrderId": "ORD1240",
-    "eta": "8 mins"
-  },
-  {
-    "agentId": "AG032",
-    "name": "Bhavna Singh",
-    "phone": "8321098765",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "11 mins"
-  },
-  {
-    "agentId": "AG033",
-    "name": "Deepak Yadav",
-    "phone": "8210987654",
-    "status": "out for delivery",
-    "currentOrderId": "ORD1263",
-    "eta": "6 mins"
-  },
-  {
-    "agentId": "AG034",
-    "name": "Kavita Mishra",
-    "phone": "8109876543",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "14 mins"
-  },
-  {
-    "agentId": "AG035",
-    "name": "Harsh Vardhan",
-    "phone": "8098765432",
-    "status": "on the way",
-    "currentOrderId": "ORD1286",
-    "eta": "9 mins"
-  },
-  {
-    "agentId": "AG036",
-    "name": "Naina Bhatt",
-    "phone": "7987654321",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "12 mins"
-  },
-  {
-    "agentId": "AG037",
-    "name": "Yash Agarwal",
-    "phone": "7876543210",
-    "status": "out for delivery",
-    "currentOrderId": "ORD1309",
-    "eta": "4 mins"
-  },
-  {
-    "agentId": "AG038",
-    "name": "Simran Kaur",
-    "phone": "7765432109",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "15 mins"
-  },
-  {
-    "agentId": "AG039",
-    "name": "Rajeev Ranjan",
-    "phone": "7654321098",
-    "status": "on the way",
-    "currentOrderId": "ORD1332",
-    "eta": "7 mins"
-  },
-  {
-    "agentId": "AG040",
-    "name": "Ayesha Khan",
-    "phone": "7543210987",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "10 mins"
-  },
-  {
-    "agentId": "AG041",
-    "name": "Mohit Chawla",
-    "phone": "7432109876",
-    "status": "out for delivery",
-    "currentOrderId": "ORD1355",
-    "eta": "5 mins"
-  },
-  {
-    "agentId": "AG042",
-    "name": "Rekha Sinha",
-    "phone": "7321098765",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "13 mins"
-  },
-  {
-    "agentId": "AG043",
-    "name": "Tarun Kapoor",
-    "phone": "7210987654",
-    "status": "on the way",
-    "currentOrderId": "ORD1378",
-    "eta": "8 mins"
-  },
-  {
-    "agentId": "AG044",
-    "name": "Lavanya Rao",
-    "phone": "7109876543",
-    "status": "available",
-    "currentOrderId": "",
-    "eta": "11 mins"
-  }
+    {
+      "agentId": "AG031",
+      "name": "Aditya Pillai",
+      "phone": "8432109876",
+      "status": "available",
+      "currentOrderId": "",
+      "eta": 0,
+      "id": "be86"
+    },
+    {
+      "agentId": "AG032",
+      "name": "Bhavna Singh",
+      "phone": "8321098765",
+      "status": "available",
+      "currentOrderId": "",
+      "eta": 0,
+      "id": "b0bc"
+    },
+    {
+      "agentId": "AG033",
+      "name": "Deepak Yadav",
+      "phone": "8210987654",
+      "status": "available",
+      "currentOrderId": "",
+      "eta": 0,
+      "id": "feb7"
+    },
+    {
+      "agentId": "AG034",
+      "name": "Kavita Mishra",
+      "phone": "8109876543",
+      "status": "available",
+      "currentOrderId": "",
+      "eta": 0,
+      "id": "6e68"
+    },
+    {
+      "agentId": "AG035",
+      "name": "Harsh Vardhan",
+      "phone": "8098765432",
+      "status": "available",
+      "currentOrderId": "",
+      "eta": 0,
+      "id": "468b"
+    },
+    {
+      "agentId": "AG044",
+      "name": "Lavanya Rao",
+      "phone": "7109876543",
+      "status": "available",
+      "currentOrderId": "",
+      "eta": 0,
+      "id": "a649"
+    }
   ]
 }
