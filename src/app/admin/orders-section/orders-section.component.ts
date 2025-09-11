@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminDataService } from '../admin-data.service';
+import { interval, Subscription } from 'rxjs';
+import { switchMap, takeWhile } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-orders-section',
@@ -12,6 +15,7 @@ export class OrdersSectionComponent implements OnInit {
   orders: any[] = [];
   selectedAgent: { [orderId: string]: any } = {};
   availableAgents: any[] = [];
+  private etaSubscriptions: { [agentId: string]: Subscription } = {};
 
   constructor(private adminService: AdminDataService) {}
 
@@ -58,34 +62,40 @@ refreshData(): void {
     this.availableAgents = data.filter(agent => agent.status === 'available');
   });
 }
+  startEtaCountdown(agentId: string): void {
+  // Prevent duplicate timers
+  if (this.etaSubscriptions[agentId]) return;
 
-startEtaCountdown(agentId: string): void {
-  const interval = setInterval(() => {
-    this.adminService.getAgentById(agentId).subscribe(agent => {
-      if (agent.eta > 0) {
-        const updatedEta = agent.eta - 1;
-        let updatedStatus = agent.status;
+  const countdown$ = interval(300000).pipe( // every 5 minutes
+    switchMap(() => this.adminService.getAgentById(agentId)),
+    takeWhile(agent => agent.eta > 0, true)
+  );
 
-        if (updatedEta <= 5 && agent.status !== 'on the way') {
-          updatedStatus = 'on the way';
-        }
+  this.etaSubscriptions[agentId] = countdown$.subscribe(agent => {
+    const updatedEta = agent.eta - 1;
+    let updatedStatus = agent.status;
 
-        if (updatedEta === 0) {
-          updatedStatus = 'available';
-        }
+    if (updatedEta <= 5 && agent.status !== 'on the way') {
+      updatedStatus = 'on the way';
+    }
 
-        this.adminService.updateAgent(agentId, {
-          eta: updatedEta,
-          status: updatedStatus,
-          currentOrderId: updatedEta === 0 ? '' : agent.currentOrderId
-        }).subscribe();
+    if (updatedEta === 0) {
+      updatedStatus = 'available';
+    }
 
-        if (updatedEta === 0) {
-          clearInterval(interval);
-        }
+    this.adminService.updateAgent(agentId, {
+      eta: updatedEta,
+      status: updatedStatus,
+      currentOrderId: updatedEta === 0 ? '' : agent.currentOrderId
+    }).subscribe(() => {
+      if (updatedEta === 0) {
+        this.etaSubscriptions[agentId]?.unsubscribe();
+        delete this.etaSubscriptions[agentId];
       }
     });
-  }, 300000); // every 5 minute
+  });
 }
+
+
 
 }

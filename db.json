@@ -48,12 +48,6 @@
       "restaurantId": 1,
       "items": [
         {
-          "Itemid": 1,
-          "name": "Idli",
-          "price": 30,
-          "image": "MenuItems/idli.jpg"
-        },
-        {
           "Itemid": 2,
           "name": "Dosa",
           "price": 40,
@@ -64,6 +58,12 @@
           "name": "Vada",
           "price": 25,
           "image": "MenuItems/sambar.jpg"
+        },
+        {
+          "Itemid": 4,
+          "name": "Idle",
+          "price": 30,
+          "image": "/hi.jpg"
         }
       ],
       "id": "ac6e"
@@ -222,29 +222,29 @@
       "id": "FD1027",
       "customer": "Mohit Verma",
       "restaurant": "Pizza Junction",
-      "status": "Pending",
-      "agent": ""
+      "status": "Assigned",
+      "agent": "Sneha Joshi"
     },
     {
       "id": "FD1028",
       "customer": "Neha Sharma",
       "restaurant": "Wrap & Roll",
-      "status": "Pending",
-      "agent": ""
+      "status": "Assigned",
+      "agent": "Neha Reddy"
     },
     {
       "id": "FD1029",
       "customer": "Amit Joshi",
       "restaurant": "Biryani Express",
-      "status": "Pending",
-      "agent": ""
+      "status": "Assigned",
+      "agent": "Shruti Kulkarni"
     },
     {
       "id": "FD1030",
       "customer": "Divya Rao",
       "restaurant": "Sushi House",
-      "status": "Pending",
-      "agent": ""
+      "status": "Assigned",
+      "agent": "Kavita Mishra"
     },
     {
       "id": "FD1031",
@@ -328,9 +328,9 @@
       "agentId": "AG004",
       "name": "Sneha Joshi",
       "phone": "9012345678",
-      "status": "available",
-      "currentOrderId": "",
-      "eta": 0,
+      "status": "out for delivery",
+      "currentOrderId": "FD1027",
+      "eta": 15,
       "id": "0013"
     },
     {
@@ -346,9 +346,9 @@
       "agentId": "AG006",
       "name": "Neha Reddy",
       "phone": "9345678901",
-      "status": "available",
-      "currentOrderId": "",
-      "eta": 0,
+      "status": "out for delivery",
+      "currentOrderId": "FD1028",
+      "eta": 15,
       "id": "8ecb"
     },
     {
@@ -364,9 +364,9 @@
       "agentId": "AG030",
       "name": "Shruti Kulkarni",
       "phone": "8543210987",
-      "status": "available",
-      "currentOrderId": "",
-      "eta": 0,
+      "status": "out for delivery",
+      "currentOrderId": "FD1029",
+      "eta": 15,
       "id": "e390"
     },
     {
@@ -400,9 +400,9 @@
       "agentId": "AG034",
       "name": "Kavita Mishra",
       "phone": "8109876543",
-      "status": "available",
-      "currentOrderId": "",
-      "eta": 0,
+      "status": "out for delivery",
+      "currentOrderId": "FD1030",
+      "eta": 15,
       "id": "6e68"
     },
     {
