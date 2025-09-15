@@ -1,0 +1,86 @@
+<div class="container mt-4">
+    <h3 class="mb-3">👤 Agent Profile: {{ agent?.name }}</h3>
+
+    <div class="card mb-4 p-3 shadow-sm">
+        <div class="row">
+            <div class="col-md-3">
+                <img [src]="'/assets/images/' + agent?.photo" class="img-fluid rounded" alt="Agent Photo">
+            </div>
+            <div class="col-md-9">
+                <p><strong>Agent ID:</strong> {{ agent?.agentId }}</p>
+                <p><strong>Phone:</strong> {{ agent?.phone }}</p>
+                <p><strong>Email:</strong> {{ agent?.email }}</p>
+                <p><strong>Status:</strong> {{ agent?.status }}</p>
+                <p><strong>Current Order:</strong> {{ agent?.currentOrderId || 'None' }}</p>
+                <p><strong>ETA:</strong> {{ agent?.eta }} mins</p>
+                <p><strong>Location:</strong> {{ agent?.location }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4 text-center">
+        <div class="col-md-3 stat-box">💰 Today: ₹{{ agent?.todayEarning }}</div>
+        <div class="col-md-3 stat-box">📦 Deliveries: {{ agent?.totalDeliveries }}</div>
+        <div class="col-md-3 stat-box">🛣️ Distance: {{ agent?.distanceTravelled }} km</div>
+        <div class="col-md-3 stat-box">⭐ Rating: {{ agent?.rating }}</div>
+    </div>
+
+    <div class="card mb-4 p-3 shadow-sm">
+        <h5>📄 Documents</h5>
+        <p><strong>License:</strong> {{ agent?.documents?.license }}</p>
+        <p><strong>ID Proof:</strong> {{ agent?.documents?.idProof }}</p>
+    </div>
+
+    <div class="accordion" id="orderAccordion">
+        <!-- Active Orders -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" [class.collapsed]="!activeOpen" type="button"
+                    (click)="toggleSection('active')">
+                    🚚 Active Orders
+                </button>
+            </h2>
+            <div class="accordion-body" *ngIf="activeOpen">
+                <div *ngFor="let order of activeOrders" class="order-card mb-3 p-3 border rounded">
+                    <p><strong>Order ID:</strong> {{ order.orderId }}</p>
+                    <p><strong>Pickup:</strong> {{ order.restaurant.name }}</p>
+                    <p><strong>Drop:</strong> {{ order.customer.address }}</p>
+                    <p><strong>Distance:</strong> {{ order.orderDetails.distance }} km</p>
+                    <p><strong>Customer:</strong> {{ order.customer.name }} ({{ order.customer.contact }})</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delivered Orders -->
+        <div class="accordion-item mt-3">
+            <h2 class="accordion-header">
+                <button class="accordion-button" [class.collapsed]="!deliveredOpen" type="button"
+                    (click)="toggleSection('delivered')">
+                    ✅ Delivered Orders
+                </button>
+            </h2>
+            <div class="accordion-body" *ngIf="deliveredOpen">
+                <div *ngFor="let order of deliveredOrders" class="order-card mb-3 p-3 border rounded">
+                    <p><strong>Order ID:</strong> {{ order.orderId }}</p>
+                    <p><strong>Delivered From:</strong> {{ order.restaurant.name }}</p>
+                    <p><strong>Delivered To:</strong> {{ order.customer.address }}</p>
+                    <p><strong>Distance:</strong> {{ order.orderDetails.distance }} km</p>
+                    <p><strong>Delivered At:</strong> {{ agent.lastDeliveryTime }}</p>
+                    <!-- 
+                    <p><strong>Delivered At:</strong> {{ order.orderDetails.deliveryStatus === 'delivered' ? agent.lastDeliveryTime : '—' }}</p> 
+                    <p><strong>Delivered At:</strong> {{ order.deliveredTime }}</p> 
+                    -->
+                    <p><strong>Customer:</strong> {{ order.customer.name }} ({{ order.customer.contact }})</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- 
+    C:\Users\2440810\OneDrive - Cognizant\Desktop\JFS Angular\Projects\deliveryModule\src
+-->

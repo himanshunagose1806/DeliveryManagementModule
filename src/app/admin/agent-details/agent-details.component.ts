@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AdminDataService } from '../admin-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agent-details',
@@ -10,12 +11,16 @@ import { AdminDataService } from '../admin-data.service';
 export class AgentDetailsComponent {
   agents: any[] = [];
 
-  constructor(private adminService: AdminDataService) {}
+  constructor(private adminService: AdminDataService, private router : Router) {}
 
   ngOnInit(): void {
     this.adminService.getAgents().subscribe((data) => {
       this.agents = this.sortAgentsByStatus(data);
     });
+  }
+
+  viewAgent(agentId: number): void {
+    this.router.navigate(['/admin/agent-dashboard', agentId]);
   }
 
   sortAgentsByStatus(data: any[]): any[] {

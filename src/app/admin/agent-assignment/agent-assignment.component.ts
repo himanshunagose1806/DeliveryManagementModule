@@ -51,7 +51,6 @@ export class AgentAssignmentComponent {
       return matchesSearch && matchesStatus;
     });
   }
-
   
   assignAgent(agentAssign: string) {
     this.agentId = agentAssign;

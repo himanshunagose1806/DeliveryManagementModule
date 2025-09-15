@@ -1,117 +1,185 @@
-/* === Container and Grid === */
+/* Container */
 .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
 }
 
-.row {
-    margin-top: 0;
+/* Header */
+h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 2rem;
 }
 
-/* === Profile Card === */
+/* Card Layout */
 .profile-card {
-    border-radius: 12px;
-    background-color: #ffffff;
-    border: 1px solid #dee2e6;
-    text-align: center;
-    padding: 1rem;
+    border-radius: 14px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+    background: linear-gradient(145deg, #ffffff, #f3f3f3);
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    position: relative;
 }
 
 .profile-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.9);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* === Avatar Circle === */
+/* Card Body */
+.card-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* Avatar Circle */
 .avatar {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 1rem;
+    width: 70px;
+    height: 70px;
+    margin: auto;
     border-radius: 50%;
-    background-color: #007bff;
+    background-color: #3498db;
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: fadeIn 0.6s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .initials {
     color: #fff;
-    font-size: 1.6rem;
-    font-weight: bold;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
-/* === Typography === */
+/* Agent Info */
 .card-title {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    color: #212529;
+    margin-top: 0.75rem;
     margin-bottom: 0.25rem;
+    color: #2c3e50;
 }
 
 .text-muted {
+    color: #7f8c8d;
     font-size: 0.85rem;
-    color: #6c757d;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
-.card-body p {
-    font-size: 0.9rem;
+p {
+    font-size: 0.95rem;
     margin-bottom: 0.4rem;
-    color: #495057;
+    color: #555;
 }
 
-/* === Badge Styling === */
+/* Badge Styling */
 .badge {
-    font-size: 0.75rem;
-    padding: 0.35em 0.6em;
+    font-size: 0.85rem;
+    padding: 0.4em 0.6em;
     border-radius: 6px;
     text-transform: capitalize;
+    font-weight: 500;
 }
 
-/* === Responsive Grid === */
-@media (max-width: 1200px) {
-    .row-cols-md-4>.col {
-        flex: 0 0 50%;
-        max-width: 50%;
+.bg-success {
+    background-color: #2ecc71;
+    color: #fff;
+    animation: pulseBadge 1.5s infinite;
+}
+
+.bg-warning {
+    background-color: #f39c12;
+    color: #fff;
+    animation: pulseBadge 1.5s infinite;
+}
+
+.bg-danger {
+    background-color: #e74c3c;
+    color: #fff;
+    animation: pulseBadge 1.5s infinite;
+}
+
+.bg-secondary {
+    background-color: #7f8c8d;
+    color: #fff;
+}
+
+/* Divider */
+hr {
+    margin: 1rem 0;
+    border: none;
+    border-top: 1px solid #ddd;
+    opacity: 1;
+}
+
+/* Assignment Info Highlight */
+.assignment-info {
+    background-color: #f9f9f9;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #34495e;
+    border: 1px solid #e0e0e0;
+}
+
+/* Toast (Optional) */
+.toast {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 0.9rem;
+    z-index: 999;
+    opacity: 0;
+    animation: toastFadeIn 0.5s forwards;
+}
+
+@keyframes toastFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulseBadge {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Responsive Grid */
+@media (max-width: 992px) {
+    .row-cols-md-3 {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .row-cols-md-4>.col {
-        flex: 0 0 100%;
-        max-width: 100%;
+    .row-cols-sm-2 {
+        grid-template-columns: repeat(1, 1fr);
     }
 
-    .avatar {
-        width: 48px;
-        height: 48px;
-    }
-
-    .initials {
-        font-size: 1.2rem;
+    .card-body {
+        padding: 1rem;
     }
 
     .card-title {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
-    .card-body p {
-        font-size: 0.85rem;
-    }
-}
-
-/* === Animation === */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
+    p {
+        font-size: 0.9rem;
     }
 }

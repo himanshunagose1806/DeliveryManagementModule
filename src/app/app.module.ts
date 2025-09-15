@@ -11,7 +11,7 @@ import { AgentAssignmentComponent } from './admin/agent-assignment/agent-assignm
 import { OrdersSectionComponent } from './admin/orders-section/orders-section.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AgentDetailsComponent } from './admin/agent-details/agent-details.component';
-import { AgentDashboardComponent } from './agent-dashboard/agent-dashboard.component';
+import { AgentDashboardComponent } from './admin/agent-dashboard/agent-dashboard.component';
 import { RestaurantsComponent } from './admin/restaurants/restaurants.component';
 import { RestaurantByIDComponent } from './admin/restaurants/restaurant-by-id/restaurant-by-id.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';

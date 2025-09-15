@@ -1,0 +1,132 @@
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #34495e;
+}
+
+.card p {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Stat Boxes */
+.stat-box {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+/* Accordion Styling */
+.accordion-button {
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #e9ecef;
+}
+
+.accordion-item {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.accordion-body {
+    padding: 1rem 1.5rem;
+}
+
+.accordion-body {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0.95);
+    transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.accordion-body.ng-trigger {
+    max-height: 2000px;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+
+/* Order Cards */
+.order-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.order-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    color: #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h3 {
+        font-size: 1.6rem;
+    }
+
+    .stat-box {
+        font-size: 0.95rem;
+        padding: 0.75rem;
+    }
+
+    .accordion-body {
+        padding: 1rem;
+    }
+
+    .order-card {
+        padding: 0.75rem;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
+}

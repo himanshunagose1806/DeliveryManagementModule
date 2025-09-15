@@ -7,48 +7,30 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AdminDataService {
-  private baseUrl = 'http://localhost:3000'; 
+  private baseUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
-  // Orders
+  // 🧾 Orders
   getOrders(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/Orders`);
+    return this.http.get<any[]>(`${this.baseUrl}/OrderDelivery`);
   }
 
   getOrderById(id: string): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/Orders/${id}`);
+    return this.http.get<any>(`${this.baseUrl}/OrderDelivery/${id}`);
   }
 
-  // Delivery Agents
+  // 🚚 Delivery Agents
   getAgents(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/DeliveryAgent`);
   }
 
   getAgentById(agentId: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/DeliveryAgent/${agentId}`);
+    return this.http.get<any>(`${this.baseUrl}/DeliveryAgent/${agentId}`);
   }
 
-  getRestaurants(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/Restaurants`);
-  }
-
-  assignAgentToOrder(orderId: string, agentName: string, agentId: string): Observable<any> {
-    const orderUpdate = {
-      agent: agentName,
-      status: 'Assigned'
-    };
-
-    const agentUpdate = {
-      status: 'out for delivery',
-      currentOrderId: orderId,
-      eta: 15
-    };
-
-    const order$ = this.http.patch(`${this.baseUrl}/Orders/${orderId}`, orderUpdate);
-    const agent$ = this.http.patch(`${this.baseUrl}/DeliveryAgent/${agentId}`, agentUpdate);
-
-    return forkJoin([order$, agent$]);
+  updateAgent(agentId: string, update: any): Observable<any> {
+    return this.http.patch(`${this.baseUrl}/DeliveryAgent/${agentId}`, update);
   }
 
   getActiveAgents(): Observable<any[]> {
@@ -59,12 +41,45 @@ export class AdminDataService {
     );
   }
 
-  getMenuByRestaurantId(id: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/menus?restaurantId=${id}`);
+  // 🔄 Assign Agent to Order
+  assignAgentToOrder(orderId: string, agentName: string, agentPhone: string, agentId: string): Observable<any> {
+    const orderUpdate = {
+      agentName,
+      agentContact: agentPhone,
+      orderDetails: {
+        deliveryStatus: 'assigned',
+        eta: 15
+      }
+    };
+
+    const agentUpdate = {
+      status: 'out for delivery',
+      currentOrderId: orderId,
+      eta: 15
+    };
+
+    const order$ = this.http.patch(`${this.baseUrl}/OrderDelivery/${orderId}`, orderUpdate);
+    const agent$ = this.http.patch(`${this.baseUrl}/DeliveryAgent/${agentId}`, agentUpdate);
+    
+    return forkJoin([order$, agent$]);
   }
 
 
-  updateAgent(agentId: string, update: any): Observable<any> {
-    return this.http.patch(`${this.baseUrl}/DeliveryAgent/${agentId}`, update);
+
+
+
+
+
+
+
+
+
+    // 🍽️ Restaurants & Menus
+  getRestaurants(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/Restaurants`);
+  }
+
+  getMenuByRestaurantId(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/Menus?restaurantId=${id}`);
   }
 }

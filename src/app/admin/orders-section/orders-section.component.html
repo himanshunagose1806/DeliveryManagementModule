@@ -1,37 +1,204 @@
-<div class="container mt-4 mb-5">
+<!-- <div class="container mt-4 mb-5">
     <h3 class="fw-bold mb-4">🧾 Orders Overview</h3>
-    <div class="row g-4">
-        <div class="col-md-6 col-lg-4" *ngFor="let order of orders">
-            <div class="card shadow-sm border-0 h-100" [attr.data-status]="order.status">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+        <div class="col" *ngFor="let order of orders">
+            <div class="card shadow-sm border-0 h-100" [attr.data-status]="order.deliveryStatus">
                 <div class="card-body d-flex flex-column justify-content-between">
                     <div>
-                        <h5 class="card-title mb-2">Order #{{ order.id }}</h5>
-                        <p class="mb-1"><strong>Customer : </strong> {{ order.customer }}</p>
-                        <p class="mb-1"><strong>Restaurant : </strong> {{ order.restaurant }}</p>
+                        <h5 class="card-title mb-2">Order #{{ order.orderId }}</h5>
+                        <p class="mb-1"><strong>Customer : </strong> {{ order.customerName }}</p>
+                        <p class="mb-1"><strong>Restaurant : </strong> {{ order.restaurantName }}</p>
                         <p class="mb-2">
                             <strong>Status : </strong>
                             <span class="badge" [ngClass]="{
-                                'bg-warning': order.status === 'Pending',
-                                'bg-success': order.status === 'Delivered' || order.status === 'Assigned',
-                                'bg-danger': order.status === 'Cancelled'
-                            }">{{ order.status }}</span>
+                                'bg-warning': order.deliveryStatus === 'pending',
+                                'bg-success': order.deliveryStatus === 'delivered',
+                                'bg-danger': order.deliveryStatus === 'cancelled',
+                                'bg-info': order.deliveryStatus === 'assigned'
+                            }">
+                                {{ order.deliveryStatus }}
+                            </span>
+
                         </p>
-                        <p class="mb-2"><strong>Agent : </strong> {{ order.agent || 'Unassigned' }}</p>
+                        <p class="mb-2 card-agent-animate"><strong>Agent : </strong> {{ order.agentName || 'Unassigned'
+                            }}</p>
                     </div>
 
                     <div class="d-flex justify-content-between mt-3">
-                        <div *ngIf="!order.agent" class="d-flex flex-column w-100">
-                            <select class="form-select form-select-sm mb-2" [(ngModel)]="selectedAgent[order.id]">
+                        <div *ngIf="order.deliveryStatus === 'pending'" class="d-flex flex-column w-100">
+                            <select class="form-select form-select-sm mb-2" [(ngModel)]="selectedAgent[order.orderId]">
                                 <option [ngValue]="null">Select Agent</option>
-                                <option *ngFor="let agent of availableAgents" [ngValue]="agent">{{ agent.name }}
+                                <option *ngFor="let agent of availableAgents" [ngValue]="agent">
+                                    {{ agent.name }} ({{ agent.phone }})
                                 </option>
                             </select>
 
+
                             <button class="btn btn-sm btn-outline-primary"
-                                (click)="assignAgent(order.id, selectedAgent[order.id])"
-                                [disabled]="!selectedAgent[order.id]">
+                                (click)="assignAgent(order.orderId, selectedAgent[order.orderId])"
+                                [disabled]="!selectedAgent[order.orderId]">
                                 Assign Agent
                             </button>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container mt-4 mb-5">
+    <h3 class="fw-bold mb-4">📦 Order Overview</h3>
+
+    <div class="accordion" id="orderAccordion">
+        <!-- 🟠 Pending Orders -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed text-warning fw-bold" type="button"
+                    (click)="toggleSection('pending')">
+                    🟠 Pending Orders ({{ pendingOrders.length }})
+                </button>
+            </h2>
+            <div class="accordion-body" *ngIf="pendingOpen">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <div class="col" *ngFor="let order of pendingOrders">
+                        <div class="card order-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Order #{{ order.orderId }}</h5>
+                                <p><strong>Status:</strong> <span class="badge status-badge pending">Pending</span>
+                                </p>
+                                <p><strong>Customer:</strong> {{ order.customer.name }} ({{ order.customer.contact
+                                    }})</p>
+                                <p><strong>Address:</strong> {{ order.customer.address }}</p>
+                                <p><strong>Restaurant:</strong> {{ order.restaurant.name }}</p>
+                                <p><strong>Items:</strong></p>
+                                <ul>
+                                    <li *ngFor="let item of order.orderDetails.items">
+                                        {{ item.name }} × {{ item.quantity }}
+                                    </li>
+                                </ul>
+                                <p><strong>Total:</strong> ₹{{ order.orderDetails.totalAmount }}</p>
+
+                                <!-- Assignment Panel -->
+                                <div class="assignment-panel mt-3">
+                                    <label>Assign Agent:</label>
+                                    <div class="dropdown-container">
+                                        <select [(ngModel)]="selectedAgent[order.orderId]"
+                                            class="form-select form-select-sm mb-2">
+                                            <option [ngValue]="null">Select Agent</option>
+                                            <option *ngFor="let agent of agents" [ngValue]="agent">
+                                                {{ agent.name }} ({{ agent.phone }})
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-primary w-100"
+                                        (click)="assignAgent(order.orderId, selectedAgent[order.orderId])"
+                                        [disabled]="!selectedAgent[order.orderId]">
+                                        Assign Agent
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🔵 Assigned Orders -->
+        <div class="accordion-item mt-3">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed text-primary fw-bold" type="button"
+                    (click)="toggleSection('assigned')">
+                    🔵 Assigned Orders ({{ assignedOrders.length }})
+                </button>
+            </h2>
+            <div class="accordion-body" *ngIf="assignedOpen">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <div class="col" *ngFor="let order of assignedOrders">
+                        <div class="card order-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Order #{{ order.orderId }}</h5>
+                                <p><strong>Status:</strong> <span class="badge status-badge assigned">Assigned</span>
+                                </p>
+                                <p><strong>Customer:</strong> {{ order.customer.name }} ({{ order.customer.contact
+                                    }})</p>
+                                <p><strong>Address:</strong> {{ order.customer.address }}</p>
+                                <p><strong>Restaurant:</strong> {{ order.restaurant.name }}</p>
+                                <p><strong>Items:</strong></p>
+                                <ul>
+                                    <li *ngFor="let item of order.orderDetails.items">
+                                        {{ item.name }} × {{ item.quantity }}
+                                    </li>
+                                </ul>
+                                <p><strong>Total:</strong> ₹{{ order.orderDetails.totalAmount }}</p>
+                                <p><strong>ETA:</strong> {{ order.orderDetails.eta }} mins</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🟢 Delivered Orders -->
+        <div class="accordion-item mt-3">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed text-success fw-bold" type="button"
+                    (click)="toggleSection('delivered')">
+                    🟢 Delivered Orders ({{ deliveredOrders.length }})
+                </button>
+            </h2>
+            <div class="accordion-body" *ngIf="deliveredOpen">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <div class="col" *ngFor="let order of deliveredOrders">
+                        <div class="card order-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Order #{{ order.orderId }}</h5>
+                                <p><strong>Status:</strong> <span class="badge status-badge delivered">Delivered</span>
+                                </p>
+                                <p><strong>Customer:</strong> {{ order.customer.name }} ({{ order.customer.contact
+                                    }})</p>
+                                <p><strong>Address:</strong> {{ order.customer.address }}</p>
+                                <p><strong>Restaurant:</strong> {{ order.restaurant.name }}</p>
+                                <p><strong>Items:</strong></p>
+                                <ul>
+                                    <li *ngFor="let item of order.orderDetails.items">
+                                        {{ item.name }} × {{ item.quantity }}
+                                    </li>
+                                </ul>
+                                <p><strong>Total:</strong> ₹{{ order.orderDetails.totalAmount }}</p>
+                                <p><strong>Delivered At:</strong> {{ order.orderDetails.deliveredTime || '—' }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
